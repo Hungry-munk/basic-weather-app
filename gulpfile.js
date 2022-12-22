@@ -4,7 +4,7 @@ const browserSync = require('browser-sync').create();
 
 function styles(done) {
   // Specify path of source SASS / SCSS file
-  return gulp.src('./scss/main.scss')
+  return gulp.src('./sass/**/*.scss')
   // Compile it, and catch errors
   .pipe(sass().on('error',sass.logError))
   // Save the CSS output file in this path
@@ -19,7 +19,7 @@ function watch(done) {
     });
 
     // Watch for changes in the source SASS / SCSS file
-    gulp.watch('./scss/main.scss', styles);
+    gulp.watch('./scss/**/*.scss', styles);
     gulp.watch('./dist/*.css').on('change',browserSync.reload);
 
     done();
