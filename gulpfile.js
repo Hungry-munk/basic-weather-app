@@ -11,8 +11,6 @@ function styles(done) {
   .pipe(gulp.dest('./dist'))
   // Auto-inject into browsers
   .pipe(browserSync.stream());
-
-  done();
 }
 
 function watch(done) {
