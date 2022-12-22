@@ -2,7 +2,7 @@ a simple weather app project for TOP, this project is reather simple but is part
 
 new things I will be using:
  - API to gather weather data
- - asynchronus programming whihc inlcudes:
+ - asynchronus programming which inlcudes:
     - promises
     - async/await 
     - call backs (not used much here though)
