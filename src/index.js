@@ -1,7 +1,13 @@
-const name = "James";
+import * as API from './modules/apiFunctions';
 
-const person = { first: name };
-console.log(person);
-const sayHelloLinting = (fName) => {
-  console.log(`Hello linting, ${fName}`);
-};
+API.getLocationData('melbourne', 'AU')
+	.then((response) => {
+		console.log(response);
+		return Promise.all([
+			API.getLocationWatherData(response.latitude, response.longitude),
+			API.getLocationImageData(response.name, response.state)
+		]);
+	})
+	.then((response) => {
+		console.log(response);
+	});
