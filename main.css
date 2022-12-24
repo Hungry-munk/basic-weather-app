@@ -52,6 +52,7 @@ header .logo {
 }
 header .logo h1 {
   font-size: 1.5em;
+  font-weight: 500;
 }
 header .formContainer form .searchBar {
   display: flex;
@@ -109,4 +110,8 @@ header .formContainer form .searchBar .inputContainer .inputContainers input:foc
 footer {
   padding: 1rem 0;
   font-size: 1.2rem;
+}
+
+main {
+  background-image: linear-gradient(50deg, #4ca1af, #ffaf7b, #ffd89b);
 }
