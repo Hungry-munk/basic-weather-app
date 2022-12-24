@@ -1,13 +1,11 @@
 @use './shared.scss' as s;
 
-$rootPadding: 2rem 1.5rem;
-
 header {
 	grid-area: header;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: $rootPadding;
+	padding: 2rem 1.5rem;
 
 	.logo {
 		font-size: 1.2rem;
@@ -16,6 +14,7 @@ header {
 		gap: 1rem;
 		& h1 {
 			font-size: 1.5em;
+			font-weight: 500;
 		}
 	}
 

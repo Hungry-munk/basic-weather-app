@@ -88,9 +88,9 @@ export async function getCompleteApiData(cityName, country) {
 }
 
 export function filterApiData(completeApiData) {
-	const completeWeatherData = completeApiData.completeWeatherData;
+	const { completeWeatherData } = completeApiData;
 	const completeImageData = completeApiData.completeimageData;
-	const completeLocationData = completeApiData.completeLocationData;
+	const { completeLocationData } = completeApiData;
 	// returning data I actaully need
 	return {
 		locationData: {

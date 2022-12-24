@@ -13,8 +13,8 @@
 	"rules": {
 		"no-console": "off",
 		"indent": ["error", "tabs"],
-		"no-tabs": 1,
-		"linebreak-style": ["error", "windows"],
-		"import/prefer-default-export": "off"
+		"import/prefer-default-export": "off",
+		"no-tabs": 0,
+		"linebreak-style": "off"
 	}
 }
