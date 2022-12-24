@@ -22,14 +22,6 @@ body {
         'header'
         'main'
         'footer';
-
-    & > main {
-        grid-area: main;
-    }
-    & > footer {
-        grid-area: footer;
-        text-align: center;
-    }
 }
 
 @media only screen and (max-width: 670px) {

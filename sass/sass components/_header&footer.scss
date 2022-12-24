@@ -82,4 +82,13 @@ header {
 footer {
     padding: 1rem 0;
     font-size: 1.2rem;
+    grid-area: footer;
+    text-align: center;
+    i {
+        color: black;
+        margin-left: 0.5rem;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
 }

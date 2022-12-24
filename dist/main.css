@@ -19,13 +19,6 @@ body {
   grid-template-rows: auto 1fr auto;
   grid-template-areas: "header" "main" "footer";
 }
-body > main {
-  grid-area: main;
-}
-body > footer {
-  grid-area: footer;
-  text-align: center;
-}
 
 @media only screen and (max-width: 670px) {
   html {
@@ -110,8 +103,49 @@ header .formContainer form .searchBar .inputContainer .inputContainers input:foc
 footer {
   padding: 1rem 0;
   font-size: 1.2rem;
+  grid-area: footer;
+  text-align: center;
+}
+footer i {
+  color: black;
+  margin-left: 0.5rem;
+}
+footer i:hover {
+  transform: scale(1.2);
 }
 
 main {
+  grid-area: main;
   background-image: linear-gradient(50deg, #4ca1af, #ffaf7b, #ffd89b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .infoContainer {
+  position: relative;
+  width: clamp(300px, 80vw, 600px);
+  height: clamp(375px, 60vh - 15vw, 600px);
+  background-color: white;
+  border-radius: 10px;
+}
+main .infoContainer .locationTitle {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 0.6rem;
+  left: 1rem;
+}
+main .infoContainer .weatherInfoContainer {
+  width: calc(clamp(300px, 80vw, 600px) - min(10vw, 100px));
+  height: calc(clamp(375px, 60vh - 15vw, 600px) - 10vh);
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+main .infoContainer .imageCredits {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.8rem;
+  font-size: 0.7rem;
 }

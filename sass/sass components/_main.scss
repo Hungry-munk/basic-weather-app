@@ -1,5 +1,40 @@
 @use './_shared.scss' as s;
 
 main {
+    grid-area: main;
     background-image: linear-gradient(50deg, #4ca1af, #ffaf7b, #ffd89b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .infoContainer {
+        $containerWidth: clamp(300px, 80vw, 600px);
+        $containerHeight: clamp(375px, calc(60vh - 15vw), 600px);
+        position: relative;
+        width: $containerWidth;
+        height: $containerHeight;
+        background-color: white;
+        border-radius: s.$borderRadius;
+        & .locationTitle {
+            font-size: 1.4rem;
+            position: absolute;
+            top: 0.6rem;
+            left: 1rem;
+        }
+        & .weatherInfoContainer {
+            width: calc($containerWidth - min(10vw, 100px));
+            height: calc($containerHeight - 10vh);
+            border-radius: s.$borderRadius;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        & .imageCredits {
+            position: absolute;
+            bottom: 0.6rem;
+            right: 0.8rem;
+            font-size: 0.7rem;
+        }
+    }
 }
