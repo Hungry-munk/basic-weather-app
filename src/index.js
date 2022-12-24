@@ -1,17 +1,12 @@
 import * as API from './modules/apiFunctions';
 
-// API.getLocationData('melbourne', 'AU')
+// API.getCompleteApiData('melbourne', 'au')
 // 	.then((response) => {
-// 		console.log(response);
-// 		return Promise.all([
-// 			API.getLocationWatherData(response.latitude, response.longitude),
-// 			API.getLocationImageData(response.name, response.state)
-// 		]);
+// 		if (response.dataStatus) {
+// 			console.log(response);
+// 			return API.filterApiData(response);
+// 		}
 // 	})
 // 	.then((response) => {
 // 		console.log(response);
 // 	});
-
-API.getProcessedApiData('melbourne', 'AU').then((response) =>
-	console.log(response)
-);

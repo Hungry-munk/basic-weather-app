@@ -1,4 +1,4 @@
-export async function getLocationData(cityName, countryName) {
+async function getLocationData(cityName, countryName) {
 	const geoLocationUrl = `https://api.api-ninjas.com/v1/geocoding?city=
     	${cityName.toLowerCase()}&country=${countryName.toLowerCase()}`;
 	const options = {
@@ -20,7 +20,7 @@ export async function getLocationData(cityName, countryName) {
 	}
 }
 
-export async function getLocationWatherData(lat, lon) {
+async function getLocationWatherData(lat, lon) {
 	const apiKey = '4bd5549e876d085c663fab0828114f71';
 	const openWatherUrl = `https://api.openweathermap.org/data/2.5/weather
 		?lat=${lat}&lon=${lon}&appid=${apiKey}`;
@@ -43,7 +43,7 @@ export async function getLocationWatherData(lat, lon) {
 	}
 }
 
-export async function getLocationImageData(cityName, stateName) {
+async function getLocationImageData(cityName, stateName) {
 	const apiKey = 'h6q1ZKjtqBKWTh3vLos8P11kdnF6x7T_Ap0G-eEoYEg';
 	const unsplashUrl = `https://api.unsplash.com/photos/random
 		?query=${cityName} ${stateName}&orientation=landscape&client_id=${apiKey}`;
@@ -61,16 +61,55 @@ export async function getLocationImageData(cityName, stateName) {
 	}
 }
 
-export async function getProcessedApiData(cityName, country) {
+export async function getCompleteApiData(cityName, country) {
 	const locationData = await getLocationData(cityName, country);
-	// trying out cool deconstruciton syntax
-	const [weatherData, imageData] = await Promise.all([
-		getLocationWatherData(locationData.latitude, locationData.longitude),
-		getLocationImageData(locationData.name, locationData.state)
-	]);
+	try {
+		// trying out cool deconstruciton syntax
+		const [weatherData, imageData] = await Promise.all([
+			getLocationWatherData(
+				locationData.latitude,
+				locationData.longitude
+			),
+			getLocationImageData(locationData.name, locationData.state)
+		]);
 
+		return {
+			dataStatus: true,
+			completeLocationData: locationData,
+			completeWeatherData: weatherData,
+			completeimageData: imageData
+		};
+	} catch (err) {
+		console.error(new Error('location not found'));
+		return {
+			dataStatus: false
+		};
+	}
+}
+
+export function filterApiData(completeApiData) {
+	const completeWeatherData = completeApiData.completeWeatherData;
+	const completeImageData = completeApiData.completeimageData;
+	const completeLocationData = completeApiData.completeLocationData;
+	// returning data I actaully need
 	return {
-		weatherData,
-		imageData
+		locationData: {
+			city: completeLocationData.name,
+			state: completeLocationData.state
+		},
+		weatherData: {
+			temperatureDetails: completeWeatherData.main,
+			descriptionDetails: completeWeatherData.weather[0],
+			windDetails: completeWeatherData.wind
+		},
+		imageData: {
+			imageUrl: completeImageData.urls.full,
+			altDescription: completeImageData.alt_description,
+			creatorDetails: {
+				firstName: completeImageData.user.first_name,
+				lastName: completeImageData.user.last_name,
+				accountLink: completeImageData.user.links.html
+			}
+		}
 	};
 }
