@@ -1,6 +1,5 @@
-a simple weather app project for TOP, this project is reather simple but is part
-of the TOP cariculum becuase of the new programming concepts being taught and
-implamented for the first time.
+a simple weather app project for TOP, this project is reather simple but is part of the TOP
+cariculum becuase of the new programming concepts being taught and implamented for the first time.
 
 new things I will be using:
 
