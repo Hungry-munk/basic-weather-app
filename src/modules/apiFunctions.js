@@ -60,3 +60,17 @@ export async function getLocationImageData(cityName, stateName) {
 		console.error(err);
 	}
 }
+
+export async function getProcessedApiData(cityName, country) {
+	const locationData = await getLocationData(cityName, country);
+	// trying out cool deconstruciton syntax
+	const [weatherData, imageData] = await Promise.all([
+		getLocationWatherData(locationData.latitude, locationData.longitude),
+		getLocationImageData(locationData.name, locationData.state)
+	]);
+
+	return {
+		weatherData,
+		imageData
+	};
+}
