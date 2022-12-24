@@ -15,19 +15,39 @@
 	</head>
 	<body>
 		<header>
-			<form action="" method="post">
-				<div class="searchBar">
-					<i class="fa-brands fa-searchengin"></i>
-					<div class="inputContainer">
-						<label for="">City name</label>
-						<input type="text" class="dataEntry" placeholder="e.g. Melbourne"/>
+			<div class="logo">
+				<i class="fa-solid fa-cloud fa-2x"></i>
+				<h1>weather app</h1>
+			</div>
+
+			<div class="formContainer">
+				<form action="" method="post">
+					<div class="searchBar">
+						<i class="fa-brands fa-searchengin"></i>
+						<div class="inputContainer">
+							<div class="inputContainers">
+								<input
+									type="text"
+									class="dataEntry"
+									placeholder="City name"
+									id="cityName"
+								/>
+								<label for="cityName">City name</label>
+							</div>
+							<div class="inputContainers">
+								<input
+									type="text"
+									class="dataEntry"
+									placeholder="Iso"
+									id="isoCode"
+								/>
+								<label for="">Iso</label>
+							</div>
+						</div>
 					</div>
-					<div class="inputContainer">
-						<label for="">Iso code</label>
-						<input type="text" class="dataEntry" placeholder="e.g. AU" />
-					</div>
-				</div>
-			</form>
+				</form>
+				<span class="forErrorMsg"></span>
+			</div>
 		</header>
 		<main></main>
 		<footer>
