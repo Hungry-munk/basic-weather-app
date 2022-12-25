@@ -71,4 +71,17 @@ export function displayWeatherData(apiData) {
         // imperical
         convertImperical();
     }
+    disableLoader();
+}
+
+export function disableLoader() {
+    setTimeout(() => {
+        document.querySelector('#loaderContainer').style.visibility = 'hidden';
+    }, 800);
+}
+
+export function enableLoader() {
+    setTimeout(() => {
+        document.querySelector('#loaderContainer').style.visibility = 'visible';
+    }, 0);
 }

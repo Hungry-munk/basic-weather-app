@@ -2,7 +2,7 @@
 
 main {
     grid-area: main;
-    background-image: linear-gradient(60deg, #4ca1af, #ffaf7b, #ffd89b);
+    background-image: s.$bgLinearGradient;
     display: flex;
     justify-content: center;
     align-items: center;

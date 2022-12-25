@@ -1,0 +1,44 @@
+@use './shared' as s;
+
+#loaderContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: s.$bgLinearGradient;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & #loader {
+        border: 0.5rem solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 0.5rem solid black;
+        width: 6rem;
+        height: 6rem;
+        -webkit-animation: spin 1.5s linear infinite;
+        /* Safari */
+        animation: spin 1.5s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

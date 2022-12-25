@@ -11,7 +11,9 @@ async function getLocationData(cityName, countryName) {
     };
 
     try {
+        DOM.enableLoader()
         const locationData = await fetch(geoLocationUrl, options);
+        DOM.disableLoader()
         return [...(await locationData.json())][0];
     } catch (err) {
         if (err.response.status === 404) {
