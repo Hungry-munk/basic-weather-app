@@ -102,7 +102,7 @@ export function filterApiData(completeApiData) {
             windDetails: completeWeatherData.wind
         },
         imageData: {
-            imageUrl: completeImageData.urls.full,
+            imageUrl: completeImageData.urls.small,
             altDescription: completeImageData.alt_description,
             creatorDetails: {
                 firstName: completeImageData.user.first_name,
@@ -122,8 +122,7 @@ export async function processSearch() {
     } else {
         const completeApiData = await getCompleteApiData(cityNameValue, IsoValue);
         if (completeApiData.dataStatus) {
-            const filteredApiData = filterApiData(completeApiData);
-            console.log(filteredApiData);
+            DOM.displayWeatherData(filterApiData(completeApiData));
         } else {
             DOM.displaySearchError('location not found');
         }
