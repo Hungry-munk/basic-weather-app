@@ -143,16 +143,21 @@ main .infoContainer {
   background-size: cover;
 }
 main .infoContainer .locationTitle {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   font-size: 1.4rem;
   position: absolute;
   top: 0.6rem;
   left: 1rem;
 }
+main .infoContainer .imageCredits {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
 main .infoContainer .weatherInfoContainer {
   width: calc(clamp(300px, 80vw, 600px) * 0.6);
   height: calc(clamp(375px, 60vh - 15vw, 600px) * 0.5);
-  background-color: white;
-  opacity: 0.7;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   position: absolute;
   top: 50%;
@@ -166,10 +171,11 @@ main .infoContainer .weatherInfoContainer {
 }
 main .infoContainer .weatherInfoContainer .mainDetailsContainer {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 main .infoContainer .weatherInfoContainer .mainDetailsContainer img {
   width: 4rem;
+  opacity: 2;
 }
 main .infoContainer .weatherInfoContainer .otherDetailsContainer {
   display: flex;
