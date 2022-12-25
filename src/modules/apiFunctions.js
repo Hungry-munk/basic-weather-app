@@ -25,7 +25,7 @@ async function getLocationData(cityName, countryName) {
 async function getLocationWatherData(lat, lon) {
     const apiKey = '4bd5549e876d085c663fab0828114f71';
     const openWatherUrl = `https://api.openweathermap.org/data/2.5/weather
-		?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+		?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
     const options = {
         method: 'GET',
