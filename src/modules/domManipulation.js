@@ -77,7 +77,7 @@ export function displayWeatherData(apiData) {
 export function disableLoader() {
     setTimeout(() => {
         document.querySelector('#loaderContainer').style.visibility = 'hidden';
-    }, 800);
+    }, 1000);
 }
 
 export function enableLoader() {

@@ -37,4 +37,4 @@ unitSwitch.addEventListener('change', () => {
     }
 });
 
-// API.processSearch('melbourne', 'au');
+API.processSearch('melbourne', 'au');
