@@ -113,14 +113,12 @@ export function filterApiData(completeApiData) {
     };
 }
 
-export async function processSearch() {
-    const cityNameValue = document.querySelector('#cityName').value;
-    const IsoValue = document.querySelector('#isoCode').value;
+export async function processSearch(cityName, Iso) {
     const regex = /^\s*$/g;
-    if (regex.test(IsoValue || cityNameValue)) {
+    if (regex.test(Iso || cityName)) {
         DOM.displaySearchError('must enter both values');
     } else {
-        const completeApiData = await getCompleteApiData(cityNameValue, IsoValue);
+        const completeApiData = await getCompleteApiData(cityName, Iso);
         if (completeApiData.dataStatus) {
             DOM.displayWeatherData(filterApiData(completeApiData));
         } else {

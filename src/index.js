@@ -6,15 +6,23 @@ const citySearch = document.querySelector('#cityName');
 const isoSearch = document.querySelector('#isoCode');
 const unitSwitch = document.querySelector('.unitSwitch');
 // setting up event listeners
-searchIcon.addEventListener('click', API.processSearch);
+searchIcon.addEventListener('click', () => {
+    const cityName = document.querySelector('#cityName').value;
+    const Iso = document.querySelector('#isoCode').value;
+    API.processSearch(cityName, Iso);
+});
 citySearch.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        API.processSearch();
+        const cityName = document.querySelector('#cityName').value;
+        const Iso = document.querySelector('#isoCode').value;
+        API.processSearch(cityName, Iso);
     }
 });
 isoSearch.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        API.processSearch();
+        const cityName = document.querySelector('#cityName').value;
+        const Iso = document.querySelector('#isoCode').value;
+        API.processSearch(cityName, Iso);
     }
 });
 
@@ -28,3 +36,5 @@ unitSwitch.addEventListener('change', () => {
         convertMetric();
     }
 });
+
+API.processSearch('melbourne', 'au');
