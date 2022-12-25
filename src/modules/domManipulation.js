@@ -40,7 +40,7 @@ export function displayWeatherData(apiData) {
             <div>Feels like : ${Math.round(weatherData.temperatureDetails.feels_like)} ℃</div>
             <div>Max temp : ${Math.round(weatherData.temperatureDetails.temp_max)} ℃</div>
             <div>Min temp : ${Math.round(weatherData.temperatureDetails.temp_min)} ℃</div>
-            <div>wind speed: ${weatherData.windDetails.speed} km/h</div>
+            <div>wind: ${weatherData.windDetails.speed} km/h</div>
         </div>
         
     `;
