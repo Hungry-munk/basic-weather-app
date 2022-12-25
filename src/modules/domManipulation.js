@@ -1,4 +1,5 @@
 import * as API from './apiFunctions';
+import { convertImperical } from './unitConversion';
 
 export function displaySearchError(message) {
     const errorMsgElement = document.querySelector('.errorMsg');
@@ -31,17 +32,43 @@ export function displayWeatherData(apiData) {
             <img alt="${weatherData.descriptionDetails.main}" src=
             "https://openweathermap.org/img/w/${weatherData.descriptionDetails.icon}.png">
 
-            <div>${Math.round(weatherData.temperatureDetails.temp)} ℃</div>
+            <div class="tempContainer">${Math.round(weatherData.temperatureDetails.temp)}</div>
                
             <div class="weatherDescription">${weatherData.descriptionDetails.description}</div>
         </div> 
 
         <div class="otherDetailsContainer">
-            <div>Feels like : ${Math.round(weatherData.temperatureDetails.feels_like)} ℃</div>
-            <div>Max temp : ${Math.round(weatherData.temperatureDetails.temp_max)} ℃</div>
-            <div>Min temp : ${Math.round(weatherData.temperatureDetails.temp_min)} ℃</div>
-            <div>wind: ${weatherData.windDetails.speed} km/h</div>
+            <div>
+                <span>Feels like: </span>
+                <span class="tempContainer">${Math.round(
+                    weatherData.temperatureDetails.feels_like
+                )}</span>
+            </div>
+
+            <div>
+                <span>Max temp: </span>
+                <span class="tempContainer">${Math.round(
+                    weatherData.temperatureDetails.temp_max
+                )}</span>
+            </div>
+            <div>
+                <span>Min temp: </span>
+                <span class="tempContainer">${Math.round(
+                    weatherData.temperatureDetails.temp_min
+                )}</span>
+            </div>
+            <div>
+                <span>Wind: </span>
+                <span class="distanceContainer"> ${Math.round(weatherData.windDetails.speed)}</span>
+            </div>
         </div>
         
     `;
+
+    const unitSwitch = document.querySelector('.unitSwitch');
+    const switchState = unitSwitch.checked;
+    if (switchState) {
+        // imperical
+        convertImperical();
+    }
 }
