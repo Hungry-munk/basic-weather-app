@@ -1,3 +1,5 @@
+import * as DOM from './domManipulation';
+
 async function getLocationData(cityName, countryName) {
     const geoLocationUrl = `https://api.api-ninjas.com/v1/geocoding?city=
     	${cityName.toLowerCase()}&country=${countryName.toLowerCase()}`;
@@ -109,4 +111,21 @@ export function filterApiData(completeApiData) {
             }
         }
     };
+}
+
+export async function processSearch() {
+    const cityNameValue = document.querySelector('#cityName').value;
+    const IsoValue = document.querySelector('#isoCode').value;
+    const regex = /^\s*$/g;
+    if (regex.test(IsoValue || cityNameValue)) {
+        DOM.displaySearchError('must enter both values');
+    } else {
+        const completeApiData = await getCompleteApiData(cityNameValue, IsoValue);
+        if (completeApiData.dataStatus) {
+            const filteredApiData = filterApiData(completeApiData);
+            console.log(filteredApiData);
+        } else {
+            DOM.displaySearchError('location not found');
+        }
+    }
 }
