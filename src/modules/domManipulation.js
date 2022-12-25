@@ -10,7 +10,6 @@ export function displaySearchError(message) {
 }
 
 export function displayWeatherData(apiData) {
-    console.log(apiData);
     // seperating data
     const locationData = apiData.locationData;
     const imageData = apiData.imageData;
