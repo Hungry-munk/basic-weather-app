@@ -2,10 +2,12 @@
 
 main {
     grid-area: main;
-    background-image: linear-gradient(50deg, #4ca1af, #ffaf7b, #ffd89b);
+    background-image: linear-gradient(60deg, #4ca1af, #ffaf7b, #ffd89b);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+
     & .infoContainer {
         $containerWidth: clamp(300px, 80vw, 600px);
         $containerHeight: clamp(375px, calc(60vh - 15vw), 600px);
@@ -13,21 +15,50 @@ main {
         width: $containerWidth;
         height: $containerHeight;
         background-color: white;
+
         border-radius: s.$borderRadius;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
         & .locationTitle {
             font-size: 1.4rem;
             position: absolute;
             top: 0.6rem;
             left: 1rem;
         }
+
         & .weatherInfoContainer {
-            width: calc($containerWidth - min(10vw, 100px));
-            height: calc($containerHeight - 10vh);
+            width: calc($containerWidth * 0.6);
+            height: calc($containerHeight * 0.5);
+            background-color: white;
+            opacity: 0.7;
             border-radius: s.$borderRadius;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translateY(-50%) translateX(-50%);
+            padding: 1.5rem;
+
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            align-items: center;
+
+            & .mainDetailsContainer {
+                text-align: center;
+                font-size: 1.5em;
+
+                img {
+                    width: 4rem;
+                }
+            }
+
+            & .otherDetailsContainer {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
 
         & .imageCredits {

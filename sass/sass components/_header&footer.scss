@@ -12,6 +12,7 @@ header {
         display: flex;
         align-items: center;
         gap: 1rem;
+
         & h1 {
             font-size: 1.5em;
             font-weight: 500;
@@ -19,13 +20,16 @@ header {
     }
 
     .formContainer {
+        position: relative;
+
         & form {
             & .searchBar {
                 display: flex;
                 align-items: center;
                 border: solid 1px black;
                 border-radius: s.$borderRadius;
-                & > i {
+
+                &>i {
                     font-size: 1.4rem;
                     padding: 0 0 0 12px;
                     cursor: pointer;
@@ -36,9 +40,11 @@ header {
                 & .inputContainer {
                     display: flex;
                     width: 100%;
+
                     & .inputContainers {
                         position: relative;
                         font-size: 1rem;
+
                         & label {
                             font-size: 0.75em;
                             position: absolute;
@@ -49,25 +55,29 @@ header {
                             padding: 0 3px;
                             z-index: 1;
                         }
+
                         & input {
                             font-size: inherit;
                             padding: 8px 12px;
                             outline: none;
                             border: none;
+
                             &#isoCode {
                                 border-left: 1px solid black;
                                 border-top-right-radius: s.$borderRadius;
                                 border-bottom-right-radius: s.$borderRadius;
                                 width: 4.5rem;
                             }
+
                             &#cityName {
                                 width: 9rem;
                             }
 
                             &:focus {
-                                & ~ label {
+                                &~label {
                                     visibility: visible;
                                 }
+
                                 &::placeholder {
                                     visibility: hidden;
                                 }
@@ -77,16 +87,27 @@ header {
                 }
             }
         }
+
+        & span.errorMsg {
+            position: absolute;
+            bottom: -0.9rem;
+            font-size: 0.75rem;
+            left: 0.5rem;
+            color: red;
+        }
     }
 }
+
 footer {
     padding: 1rem 0;
     font-size: 1.2rem;
     grid-area: footer;
     text-align: center;
+
     i {
         color: black;
         margin-left: 0.5rem;
+
         &:hover {
             transform: scale(1.2);
         }
