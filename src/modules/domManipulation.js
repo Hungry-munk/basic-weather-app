@@ -31,16 +31,16 @@ export function displayWeatherData(apiData) {
             <img alt="${weatherData.descriptionDetails.main}" src=
             "https://openweathermap.org/img/w/${weatherData.descriptionDetails.icon}.png">
 
-            <div>${Math.round(weatherData.temperatureDetails.temp)}</div>
+            <div>${Math.round(weatherData.temperatureDetails.temp)} ℃</div>
                
             <div class="weatherDescription">${weatherData.descriptionDetails.description}</div>
         </div> 
 
         <div class="otherDetailsContainer">
-            <div>Feels like : ${Math.round(weatherData.temperatureDetails.feels_like)}</div>
-            <div>Max temp : ${Math.round(weatherData.temperatureDetails.temp_max)}</div>
-            <div>Min temp : ${Math.round(weatherData.temperatureDetails.temp_min)}</div>
-            <div>wind speed: ${weatherData.windDetails.speed}</div>
+            <div>Feels like : ${Math.round(weatherData.temperatureDetails.feels_like)} ℃</div>
+            <div>Max temp : ${Math.round(weatherData.temperatureDetails.temp_max)} ℃</div>
+            <div>Min temp : ${Math.round(weatherData.temperatureDetails.temp_min)} ℃</div>
+            <div>wind speed: ${weatherData.windDetails.speed} km/h</div>
         </div>
         
     `;
